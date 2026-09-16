@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21 21'%3E%3Crect width='21' height='21' fill='%2316283D'/%3E%3Crect x='0' y='0' width='7' height='7' fill='%23F2A93B'/%3E%3Crect x='1' y='1' width='5' height='5' fill='%2316283D'/%3E%3Crect x='2' y='2' width='3' height='3' fill='%23F2A93B'/%3E%3Crect x='14' y='0' width='7' height='7' fill='%23F2A93B'/%3E%3Crect x='15' y='1' width='5' height='5' fill='%2316283D'/%3E%3Crect x='16' y='2' width='3' height='3' fill='%23F2A93B'/%3E%3Crect x='0' y='14' width='7' height='7' fill='%23F2A93B'/%3E%3Crect x='1' y='15' width='5' height='5' fill='%2316283D'/%3E%3Crect x='2' y='16' width='3' height='3' fill='%23F2A93B'/%3E%3Crect x='9' y='1' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='11' y='4' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='9' y='9' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='11' y='9' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='9' y='11' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='13' y='9' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='16' y='11' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='9' y='16' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='13' y='13' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='17' y='17' width='1' height='1' fill='%23F2A93B'/%3E%3C/svg%3E">
 <title>Free QR Code Generator — No Sign-Up, No Expiration, No Watermark | QRcodeology</title>
 <meta name="description" content="Free QR code tools that never expire and never watermark your download. Generate a standard QR code, add your logo, build a WiFi QR code, or create codes in bulk.">
 <link rel="canonical" href="https://qrcodeology.com/">
@@ -56,6 +57,28 @@
   .menu-panel a:hover{background:rgba(79,209,232,0.08);color:var(--cyan);}
   .menu-panel a.active{color:var(--cyan);}
   .site-footer-bg{background:var(--bg);}
+  .persona-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0 8px;}
+  @media (max-width:680px){.persona-grid{grid-template-columns:1fr;}}
+  .persona-card{background:var(--surface);border:1px solid var(--surface-line);border-radius:var(--radius);padding:22px;}
+  .persona-card .who{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cyan-ink);margin-bottom:8px;display:block;}
+  .persona-card h3{font-size:17px;margin:0 0 8px;font-weight:700;}
+  .persona-card p{color:var(--ink-dim);font-size:14px;margin:0;}
+  .mid-section{padding:8px 0 8px;border-top:1px solid var(--surface-line);}
+  .mid-section h2{font-family:'Space Mono',monospace;font-weight:700;font-size:24px;margin:44px 0 18px;}
+  .mid-section > p{color:var(--ink-dim);font-size:15.5px;max-width:68ch;margin:0 0 14px;}
+  .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:20px 0 8px;}
+  @media (max-width:680px){.steps-row{grid-template-columns:1fr;}}
+  .step{padding:20px 0 0;}
+  .step .num{font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--amber-ink);display:block;margin-bottom:8px;}
+  .step h3{font-size:16px;margin:0 0 8px;font-weight:700;}
+  .step p{color:var(--ink-dim);font-size:14px;margin:0;}
+  .faq2{margin-top:8px;border-top:1px solid var(--surface-line);}
+  .faq2 details{border-bottom:1px solid var(--surface-line);padding:16px 0;}
+  .faq2 summary{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:var(--ink);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  .faq2 summary::-webkit-details-marker{display:none;}
+  .faq2 summary::after{content:"+";font-family:'Space Mono',monospace;color:var(--amber-ink);font-size:18px;margin-left:12px;flex-shrink:0;}
+  .faq2 details[open] summary::after{content:"–";}
+  .faq2 details p{margin:12px 0 0;color:var(--ink-dim);font-size:14.5px;max-width:66ch;}
   .site-footer{padding:40px 24px 60px;max-width:960px;margin:0 auto;text-align:center;}
   .footer-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--paper);font-family:'Space Mono',monospace;font-weight:700;font-size:26px;letter-spacing:0.01em;margin-bottom:14px;}
   .footer-brand .brand-icon{color:var(--amber);display:flex;transition:transform 0.25s ease, color 0.2s ease;}
@@ -81,6 +104,9 @@
     --ink:var(--paper); --ink-dim:var(--paper-dim); --surface:var(--bg-raised);
     --surface-line:var(--line); --cyan-ink:var(--cyan); --amber-ink:var(--amber);
   }
+  .site-footer .footer-links{margin-top:14px;}
+  .site-footer .footer-links a{color:var(--paper-dim);margin-right:16px;text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;}
+  .site-footer .footer-links a:hover{color:var(--cyan);}
 </style>
 </head>
 <body>
@@ -170,6 +196,81 @@
       </a>
     </section>
 
+    <section class="mid-section">
+      <h2>Built for however you use QR codes</h2>
+      <div class="persona-grid">
+        <div class="persona-card">
+          <span class="who">Event &amp; Business Hosts</span>
+          <h3>Guest WiFi, menus, and flyers</h3>
+          <p>Generate a WiFi code for guests, or a standard code linking to your menu, booking page, or event details — print and go.</p>
+        </div>
+        <div class="persona-card">
+          <span class="who">Small Business Owners</span>
+          <h3>Branded codes and bulk labels</h3>
+          <p>Add your logo to a code for marketing materials, or generate up to 30 codes at once for product labels or packaging.</p>
+        </div>
+        <div class="persona-card">
+          <span class="who">Teachers &amp; Educators</span>
+          <h3>Quick links for handouts</h3>
+          <p>Turn a worksheet, video link, or class resource into a scannable code students can access instantly, no typing required.</p>
+        </div>
+        <div class="persona-card">
+          <span class="who">Personal Use</span>
+          <h3>Save a password, share a contact</h3>
+          <p>Share your home WiFi password without spelling it out, or generate a quick code for any link you want to hand off.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mid-section">
+      <h2>New to QR codes? Here's the basics.</h2>
+      <p>A QR code is a two-dimensional barcode — a grid of black and white squares that a phone camera can read instantly. "QR" stands for "Quick Response," which describes exactly what it does: point a camera at it, and the encoded information (a link, text, WiFi credentials, whatever) opens immediately, no app or typing required.</p>
+      <p>Every QR code has built-in error correction, meaning part of the pattern can be damaged, covered by a logo, or printed a bit blurry and it will still scan correctly. That's what makes it safe to add a logo to the center of a code, which the <a href="logo-watermark/index.html">logo generator</a> on this site does automatically.</p>
+    </section>
+
+    <section class="mid-section">
+      <h2>How it works</h2>
+      <div class="steps-row">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Pick a tool</h3>
+          <p>Standard, logo-branded, WiFi, or bulk — choose whichever matches what you're trying to do.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Enter your info</h3>
+          <p>A link, some text, your WiFi details, or a list — whatever the tool asks for.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Download</h3>
+          <p>Your code generates instantly. Download the PNG and you're done — no account, no waiting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mid-section">
+      <h2>Frequently asked questions</h2>
+      <div class="faq2">
+        <details>
+          <summary>Do QR codes expire?</summary>
+          <p>Static QR codes, like the ones generated on this site, never expire. The data is baked directly into the pattern itself, so there's no server dependency that could cause it to stop working later.</p>
+        </details>
+        <details>
+          <summary>Can I scan a QR code without an app?</summary>
+          <p>Yes. Every modern iPhone and most Android phones can scan a QR code directly through the built-in camera app — just point and tap the notification that appears.</p>
+        </details>
+        <details>
+          <summary>What's the difference between static and dynamic QR codes?</summary>
+          <p>A static code has its destination permanently encoded and never expires. A dynamic code points to a redirect URL controlled by a third-party service, which lets you change the destination later but depends on that service staying online. Every tool on this site generates static codes.</p>
+        </details>
+        <details>
+          <summary>Is there a limit to how many times a code can be scanned?</summary>
+          <p>No. A static QR code can be scanned an unlimited number of times by an unlimited number of people, for as long as the printed or saved image exists.</p>
+        </details>
+      </div>
+    </section>
+
     </div>
 
   <div class="site-footer-bg">
@@ -199,6 +300,9 @@
         <span><span class="qr">QR</span>codeology</span>
       </a>
       <p class="note-text">Every tool on this page runs entirely in your browser. Nothing you enter is stored or sent anywhere.</p>
+      <div class="footer-links">
+        <a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a>
+      </div>
     </footer>
   </div>
 <script>
