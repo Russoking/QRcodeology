@@ -189,6 +189,7 @@
     <a href="../../bulk/index.html">Bulk Generator</a>
     <a href="../../scanner/index.html">QR Code Scanner</a>
     <a href="../../blog/index.html" class="active">Blog</a>
+    <a href="../../glossary/index.html">Glossary</a>
       </div>
     </div>
     </nav>
@@ -209,7 +210,7 @@
 
       <h2>How a static code actually works</h2>
       <p>Every QR code is a grid of black-and-white squares that encodes data directly, the same way a barcode encodes a product number. When you generate a static code for a URL, that full URL — character by character — is converted into the pattern. A scanner reading the code doesn't contact any server to "look up" what the code means; it decodes the pattern locally and gets your destination immediately.</p>
-      <p>This is also why static codes have a practical length limit: cram in a very long URL and the pattern gets dense enough that it becomes harder to scan reliably, especially once printed small. Most tools, including the ones on this site, warn you or auto-adjust error correction if you push a code close to that ceiling.</p>
+      <p>This is also why static codes have a practical length limit: cram in a very long URL and the pattern gets dense enough that it becomes harder to scan reliably, especially once printed small. Most tools, including the ones on this site, warn you or auto-adjust <a href="../../glossary/index.html#error-correction">error correction</a> if you push a code close to that ceiling.</p>
 
       <h2>How a dynamic code actually works</h2>
       <p>A dynamic code encodes something like <code>https://short.ly/a1b2c3</code> instead of your real destination. When scanned, the phone's browser opens that short link, which hits the provider's server, looks up what <code>a1b2c3</code> currently points to in their database, and redirects the browser there. You can log into that provider's dashboard later and change where <code>a1b2c3</code> redirects — without reprinting the code.</p>
@@ -319,7 +320,7 @@
       </a>
       <p class="note-text">Every tool on this site runs entirely in your browser. Nothing you enter is stored or sent anywhere.</p>
       <div class="footer-links">
-        <a href="../../about.html">About</a><a href="../../contact.html">Contact</a><a href="../../privacy.html">Privacy Policy</a><a href="../../terms.html">Terms of Service</a><a href="../../blog/index.html">Blog</a>
+        <a href="../../about.html">About</a><a href="../../contact.html">Contact</a><a href="../../privacy.html">Privacy Policy</a><a href="../../terms.html">Terms of Service</a><a href="../../blog/index.html">Blog</a><a href="../../glossary/index.html">Glossary</a>
       </div>
     </footer>
   </div>
