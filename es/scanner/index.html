@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21 21'%3E%3Crect width='21' height='21' fill='%2316283D'/%3E%3Crect x='0' y='0' width='7' height='7' fill='%23F2A93B'/%3E%3Crect x='1' y='1' width='5' height='5' fill='%2316283D'/%3E%3Crect x='2' y='2' width='3' height='3' fill='%23F2A93B'/%3E%3Crect x='14' y='0' width='7' height='7' fill='%23F2A93B'/%3E%3Crect x='15' y='1' width='5' height='5' fill='%2316283D'/%3E%3Crect x='16' y='2' width='3' height='3' fill='%23F2A93B'/%3E%3Crect x='0' y='14' width='7' height='7' fill='%23F2A93B'/%3E%3Crect x='1' y='15' width='5' height='5' fill='%2316283D'/%3E%3Crect x='2' y='16' width='3' height='3' fill='%23F2A93B'/%3E%3Crect x='9' y='1' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='11' y='4' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='9' y='9' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='11' y='9' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='9' y='11' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='13' y='9' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='16' y='11' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='9' y='16' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='13' y='13' width='1' height='1' fill='%23F2A93B'/%3E%3Crect x='17' y='17' width='1' height='1' fill='%23F2A93B'/%3E%3C/svg%3E">
+<title>Escáner de Código QR Gratis — Lee Códigos QR desde una Imagen o Cámara | QRcodeology</title>
+<meta name="description" content="Escanea un código QR con tu cámara o sube una imagen para decodificarlo al instante. Funciona completamente en tu navegador — nada se sube a un servidor.">
+<link rel="canonical" href="https://qrcodeology.com/es/scanner/">
+<link rel="alternate" hreflang="en" href="https://qrcodeology.com/scanner/">
+<link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/scanner/">
+<link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/scanner/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QRcodeology">
+<meta property="og:title" content="Escáner de Código QR Gratis — Lee Códigos QR desde una Imagen o Cámara">
+<meta property="og:description" content="Escanea un código QR con tu cámara o sube una imagen para decodificarlo al instante. Funciona completamente en tu navegador — nada se sube a un servidor.">
+<meta property="og:url" content="https://qrcodeology.com/es/scanner/">
+<meta property="og:image" content="https://qrcodeology.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Escáner de Código QR Gratis — Lee Códigos QR desde una Imagen o Cámara">
+<meta name="twitter:description" content="Escanea un código QR con tu cámara o sube una imagen para decodificarlo al instante. Funciona completamente en tu navegador — nada se sube a un servidor.">
+<meta name="twitter:image" content="https://qrcodeology.com/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2998114490562738"
+     crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#16283D; --bg-raised:#1E3350; --paper:#E8EEF4; --paper-dim:#93A6BE;
+    --cyan:#4FD1E8; --amber:#F2A93B; --line:rgba(232,238,244,0.14); --radius:6px;
+    --ink:#16283D; --ink-dim:#5B6B80; --surface:#F1F4F8; --surface-line:rgba(22,40,61,0.12);
+    --cyan-ink:#0E8CA1; --amber-ink:#B36B00;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF;color:var(--ink);font-family:'Inter',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  a{color:var(--cyan);}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  header.hero{padding:24px 0 40px;border-bottom:1px solid var(--surface-line);}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber-ink);margin:0 0 16px;}
+  h1{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(28px,4.6vw,42px);line-height:1.15;margin:0 0 16px;letter-spacing:-0.01em;}
+  h1 span{color:var(--cyan-ink);}
+  .sub{font-size:16px;color:var(--ink-dim);max-width:58ch;margin:0;}
+
+  .panel{padding:32px 0;display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start;}
+  @media (max-width:760px){.panel{grid-template-columns:1fr;}}
+
+  .type-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+  .type-tabs button{
+    background:var(--surface);border:1px solid var(--surface-line);color:var(--ink-dim);
+    font-family:'Space Mono',monospace;font-size:12px;padding:8px 14px;border-radius:4px;cursor:pointer;
+  }
+  .type-tabs button.active{border-color:var(--cyan-ink);color:var(--cyan-ink);}
+
+  .dropzone{
+    background:var(--surface);border:2px dashed var(--surface-line);border-radius:var(--radius);
+    padding:40px 20px;text-align:center;cursor:pointer;transition:border-color 0.15s ease;
+  }
+  .dropzone.drag{border-color:var(--cyan-ink);}
+  .dropzone p{color:var(--ink-dim);font-size:14.5px;margin:0 0 6px;}
+  .dropzone .small{font-size:12.5px;color:var(--ink-dim);opacity:0.8;margin:0;}
+
+  button.generate{
+    background:var(--amber);color:#1A1200;border:none;border-radius:var(--radius);
+    font-family:'Inter',sans-serif;font-weight:700;font-size:15px;padding:13px 22px;
+    cursor:pointer;width:100%;margin-top:8px;transition:background 0.15s ease;
+  }
+  button.generate:hover{background:#FFC15C;}
+  button.generate.stop{background:var(--surface);color:var(--ink);border:1px solid var(--surface-line);}
+
+  video#video{width:100%;border-radius:var(--radius);background:#000;margin-top:8px;}
+
+  .preview{
+    background:var(--surface);border:1px solid var(--surface-line);border-radius:var(--radius);
+    padding:24px;position:sticky;top:24px;
+  }
+  .preview h3{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-dim);margin:0 0 14px;}
+  #resultBox{min-height:100px;word-break:break-word;}
+  #resultBox .placeholder{color:var(--ink-dim);font-size:13px;font-family:'Space Mono',monospace;}
+  #resultBox .decoded{font-size:14.5px;color:var(--ink);background:#fff;border:1px solid var(--surface-line);border-radius:4px;padding:12px;margin-bottom:4px;}
+  #resultBox .kind{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--cyan-ink);display:block;margin-bottom:8px;}
+  #resultBox .wifi-field{font-size:13.5px;margin:4px 0;}
+  #resultBox .wifi-field strong{color:var(--ink);}
+  #resultBox .error-text{color:var(--amber-ink);font-size:13.5px;}
+  .download-row{display:flex;gap:10px;margin-top:12px;}
+  .download-row button{
+    flex:1;background:none;border:1px solid var(--surface-line);color:var(--ink);
+    font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:10px;border-radius:4px;cursor:pointer;
+  }
+  .download-row button:hover{border-color:var(--cyan-ink);color:var(--cyan-ink);}
+
+  .content{padding:24px 0 8px;border-top:1px solid var(--surface-line);}
+  .content h2{font-family:'Space Mono',monospace;font-weight:700;font-size:22px;margin:36px 0 12px;}
+  .content h2:first-child{margin-top:12px;}
+  .content p{color:var(--ink-dim);font-size:15.5px;max-width:68ch;margin:0 0 14px;}
+  .faq{margin-top:8px;border-top:1px solid var(--surface-line);}
+  .faq details{border-bottom:1px solid var(--surface-line);padding:16px 0;}
+  .faq summary{font-family:'Inter',sans-serif;font-weight:600;font-size:15.5px;color:var(--ink);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";font-family:'Space Mono',monospace;color:var(--amber-ink);font-size:18px;margin-left:12px;flex-shrink:0;}
+  .faq details[open] summary::after{content:"–";}
+  .faq details p{margin:12px 0 0;color:var(--ink-dim);font-size:15px;max-width:66ch;}
+
+  .site-header{background:var(--bg);}
+  .topnav{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;max-width:920px;margin:0 auto;position:relative;}
+  .topnav .brand{display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-weight:700;font-size:28px;color:var(--paper);text-decoration:none;letter-spacing:0.01em;}
+  .brand-icon{display:flex;color:var(--amber);transition:transform 0.25s ease, color 0.2s ease;}
+  .brand:hover .brand-icon{color:var(--cyan);transform:rotate(90deg);}
+  .brand-text .qr{color:var(--amber);transition:color 0.2s ease;}
+  .brand:hover .brand-text .qr{color:var(--cyan);}
+  .menu-toggle{background:none;border:1px solid var(--line);border-radius:4px;width:40px;height:36px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;}
+  .menu-toggle span{display:block;width:18px;height:2px;background:var(--paper);transition:transform 0.2s ease, opacity 0.2s ease;}
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-toggle.open span:nth-child(2){opacity:0;}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .menu-panel{position:absolute;top:calc(100% + 4px);right:0;background:var(--bg-raised);border:1px solid var(--line);border-radius:6px;padding:8px;display:none;flex-direction:column;min-width:240px;z-index:20;box-shadow:0 10px 30px rgba(0,0,0,0.35);}
+  .menu-panel.open{display:flex;}
+  .menu-panel a{padding:10px 12px;border-radius:4px;color:var(--paper-dim);text-decoration:none;font-size:14px;}
+  .menu-panel a:hover{background:rgba(79,209,232,0.08);color:var(--cyan);}
+  .menu-panel a.active{color:var(--cyan);}
+  .site-footer-bg{background:var(--bg);}
+  .site-footer{padding:40px 24px 60px;max-width:920px;margin:0 auto;text-align:center;}
+  .footer-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--paper);font-family:'Space Mono',monospace;font-weight:700;font-size:26px;letter-spacing:0.01em;margin-bottom:14px;}
+  .footer-brand .brand-icon{color:var(--amber);display:flex;transition:transform 0.25s ease, color 0.2s ease;}
+  .footer-brand:hover .brand-icon{color:var(--cyan);transform:rotate(90deg);}
+  .footer-brand .qr{color:var(--amber);transition:color 0.2s ease;}
+  .footer-brand:hover .qr{color:var(--cyan);}
+  .site-footer .note-text{color:var(--paper-dim);font-size:13px;max-width:50ch;margin:0 auto;}
+  .nav-right{display:flex;align-items:center;gap:10px;}
+  .lang-select{position:relative;}
+  .lang-toggle{background:none;border:1px solid var(--line);border-radius:4px;height:36px;padding:0 10px;display:flex;align-items:center;gap:6px;color:var(--paper-dim);font-family:'Space Mono',monospace;font-size:12px;cursor:pointer;}
+  .lang-toggle:hover{border-color:var(--cyan);color:var(--cyan);}
+  .lang-toggle .chevron{transition:transform 0.2s ease;}
+  .lang-toggle.open .chevron{transform:rotate(180deg);}
+  .lang-panel{position:absolute;top:calc(100% + 4px);left:0;background:var(--bg-raised);border:1px solid var(--line);border-radius:6px;padding:6px;display:none;flex-direction:column;min-width:150px;z-index:20;box-shadow:0 10px 30px rgba(0,0,0,0.35);}
+  .lang-panel.open{display:flex;}
+  .lang-panel a{padding:8px 10px;border-radius:4px;color:var(--paper-dim);text-decoration:none;font-size:13px;}
+  .lang-panel a:hover{background:rgba(79,209,232,0.08);color:var(--cyan);}
+  .lang-panel a.active{color:var(--cyan);}
+  .theme-toggle{background:none;border:1px solid var(--line);border-radius:4px;height:36px;width:36px;display:flex;align-items:center;justify-content:center;color:var(--paper-dim);cursor:pointer;}
+  .theme-toggle:hover{border-color:var(--cyan);color:var(--cyan);}
+  body.theme-dark{
+    background:var(--bg);
+    --ink:var(--paper); --ink-dim:var(--paper-dim); --surface:var(--bg-raised);
+    --surface-line:var(--line); --cyan-ink:var(--cyan); --amber-ink:var(--amber);
+  }
+  .related{border-top:1px solid var(--surface-line);padding:8px 0 8px;}
+  .related h2{font-family:'Space Mono',monospace;font-weight:700;font-size:20px;margin:32px 0 18px;}
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:8px;}
+  @media (max-width:720px){.related-grid{grid-template-columns:1fr;}}
+  .related-card{background:var(--surface);border:1px solid var(--surface-line);border-radius:var(--radius);padding:18px 16px;text-decoration:none;color:var(--ink);display:block;transition:border-color 0.15s ease, transform 0.15s ease;}
+  .related-card:hover{border-color:var(--cyan-ink);transform:translateY(-2px);}
+  .related-tag{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cyan-ink);display:block;margin-bottom:8px;}
+  .related-card h3{font-size:15px;margin:0 0 6px;font-family:'Inter',sans-serif;font-weight:700;}
+  .related-card p{font-size:13px;color:var(--ink-dim);margin:0;}
+</style>
+</head>
+<body>
+  <div class="site-header">
+    <nav class="topnav">
+      <a href="../index.html" class="brand"><span class="brand-icon">
+        <svg viewBox="0 0 21 21" width="34" height="34" aria-hidden="true">
+          <rect x="0" y="0" width="7" height="7" fill="currentColor"/>
+          <rect x="1" y="1" width="5" height="5" fill="#16283D"/>
+          <rect x="2" y="2" width="3" height="3" fill="currentColor"/>
+          <rect x="14" y="0" width="7" height="7" fill="currentColor"/>
+          <rect x="15" y="1" width="5" height="5" fill="#16283D"/>
+          <rect x="16" y="2" width="3" height="3" fill="currentColor"/>
+          <rect x="0" y="14" width="7" height="7" fill="currentColor"/>
+          <rect x="1" y="15" width="5" height="5" fill="#16283D"/>
+          <rect x="2" y="16" width="3" height="3" fill="currentColor"/>
+          <rect x="9" y="1" width="1" height="1" fill="currentColor"/>
+          <rect x="11" y="4" width="1" height="1" fill="currentColor"/>
+          <rect x="9" y="9" width="1" height="1" fill="currentColor"/>
+          <rect x="11" y="9" width="1" height="1" fill="currentColor"/>
+          <rect x="9" y="11" width="1" height="1" fill="currentColor"/>
+          <rect x="13" y="9" width="1" height="1" fill="currentColor"/>
+          <rect x="16" y="11" width="1" height="1" fill="currentColor"/>
+          <rect x="9" y="16" width="1" height="1" fill="currentColor"/>
+          <rect x="13" y="13" width="1" height="1" fill="currentColor"/>
+          <rect x="17" y="17" width="1" height="1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-text"><span class="qr">QR</span>codeology</span>
+    </a>
+      <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
+        <svg id="iconMoon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></svg>
+        <svg id="iconSun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <div class="lang-select" id="langSelect">
+        <button class="lang-toggle" id="langToggle" aria-label="Seleccionar idioma">
+          <span class="lang-code">ES</span>
+          <svg class="chevron" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        </button>
+        <div class="lang-panel" id="langPanel">
+          <a href="../../scanner/index.html" class="lang-option" data-lang="en">English</a>
+          <a href="#" class="lang-option active" data-lang="es">Español</a>
+        </div>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu-panel" id="menuPanel">
+<a href="../index.html">Todas las Herramientas</a>
+    <a href="../no-expiration/index.html">Generador Sin Vencimiento</a>
+    <a href="../logo-watermark/index.html">Código QR con Logo</a>
+    <a href="../wifi/index.html">Generador de WiFi</a>
+    <a href="../bulk/index.html">Generador en Lote</a>
+    <a href="../scanner/index.html" class="active">Escáner de Código QR</a>
+    <a href="../size-calculator/index.html">Calculadora de Tamaño</a>
+    <a href="../blog/index.html">Blog</a>
+    <a href="../glossary/index.html">Glosario</a>
+      </div>
+    </div>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <header class="hero">
+      <p class="eyebrow">Escáner de Código QR Gratis</p>
+      <h1>Lee cualquier código QR, <span>directo en tu navegador.</span></h1>
+      <p class="sub">Usa tu cámara o sube una imagen. La decodificación ocurre completamente en tu dispositivo — nada se envía a un servidor.</p>
+    </header>
+
+    <section class="panel">
+      <div>
+        <div class="type-tabs" id="modeTabs">
+          <button type="button" class="active" data-mode="upload">Subir Imagen</button>
+          <button type="button" data-mode="camera">Usar Cámara</button>
+        </div>
+
+        <div data-mode-panel="upload">
+          <div class="dropzone" id="dropzone">
+            <p><strong>Haz clic para elegir una imagen</strong>, o arrástrala aquí</p>
+            <p class="small">PNG, JPG o cualquier imagen que contenga un código QR</p>
+          </div>
+          <input type="file" id="fileInput" accept="image/*" hidden>
+        </div>
+
+        <div data-mode-panel="camera" style="display:none;">
+          <button class="generate" id="startCamBtn">Iniciar Cámara</button>
+          <button class="generate stop" id="stopCamBtn" style="display:none;">Detener Cámara</button>
+          <video id="video" playsinline muted style="display:none;"></video>
+          <p class="small" style="color:var(--ink-dim);font-size:12.5px;margin-top:10px;">Tu navegador pedirá permiso de cámara. El video se procesa localmente y nunca se sube.</p>
+        </div>
+      </div>
+
+      <div class="preview">
+        <h3>Resultado</h3>
+        <div id="resultBox"><span class="placeholder">Escanea un código para ver el resultado aquí</span></div>
+        <div class="download-row" id="resultActions" style="display:none;">
+          <button id="copyBtn">Copiar</button>
+          <button id="openBtn" style="display:none;">Abrir Enlace</button>
+        </div>
+      </div>
+    </section>
+
+    <canvas id="processCanvas" style="display:none;"></canvas>
+
+    <section class="content">
+      <h2>Cómo funciona este escáner</h2>
+      <p>Ya sea que subas una imagen o uses tu cámara, la decodificación ocurre completamente dentro de tu navegador usando el poder de procesamiento de tu propio dispositivo. Ninguna imagen o fotograma de video se sube jamás a un servidor — el mismo enfoque de privacidad que usa cada herramienta generadora de este sitio.</p>
+      <p>Apunta tu cámara a un código QR impreso o en pantalla, o sube una captura o foto que contenga uno, y el contenido decodificado aparece al instante en cuanto se encuentra.</p>
+
+      <h2 id="faq">Preguntas frecuentes</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Se sube mi foto o el video de la cámara a algún lado?</summary>
+          <p>No. La decodificación ocurre localmente en tu navegador usando JavaScript. Nada se envía a un servidor, se registra ni se almacena.</p>
+        </details>
+        <details>
+          <summary>¿Por qué no detecta mi código QR?</summary>
+          <p>Asegúrate de que todo el código sea visible y esté enfocado, con suficiente borde liso (la "zona de silencio") alrededor. El bajo contraste, el brillo excesivo o una imagen muy pequeña o borrosa son las razones más comunes por las que un código falla al decodificar.</p>
+        </details>
+        <details>
+          <summary>¿Puedo escanear un código QR de WiFi con esto?</summary>
+          <p>Sí — si el código codifica credenciales de WiFi, el escáner reconoce el formato y muestra el nombre de la red y la contraseña directamente en lugar de texto sin procesar.</p>
+        </details>
+        <details>
+          <summary>¿Funciona en móviles?</summary>
+          <p>Sí, tanto la opción de cámara como la de subir imagen funcionan en navegadores móviles modernos. Si el acceso a la cámara no aparece, revisa que tu navegador tenga permiso de cámara habilitado para este sitio.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>¿Necesitas crear un código en su lugar?</h2>
+      <div class="related-grid">
+        <a class="related-card" href="../no-expiration/index.html">
+          <span class="related-tag">Estándar</span>
+          <h3>Genera un código QR</h3>
+          <p>URL, texto, correo o teléfono — un código permanente sin vencimiento.</p>
+        </a>
+        <a class="related-card" href="../wifi/index.html">
+          <span class="related-tag">WiFi</span>
+          <h3>Código QR de WiFi</h3>
+          <p>Convierte las credenciales de tu red en un código para conectar escaneando.</p>
+        </a>
+        <a class="related-card" href="../logo-watermark/index.html">
+          <span class="related-tag">Con Marca</span>
+          <h3>Añade tu logo</h3>
+          <p>Personaliza un código con tu propio logo, sin marca de agua añadida.</p>
+        </a>
+      </div>
+    </section>
+
+    </div>
+
+  <div class="site-footer-bg">
+    <footer class="site-footer">
+      <a href="../index.html" class="footer-brand">
+        <span class="brand-icon"><svg viewBox="0 0 21 21" width="30" height="30" aria-hidden="true">
+          <rect x="0" y="0" width="7" height="7" fill="currentColor"/>
+          <rect x="1" y="1" width="5" height="5" fill="#16283D"/>
+          <rect x="2" y="2" width="3" height="3" fill="currentColor"/>
+          <rect x="14" y="0" width="7" height="7" fill="currentColor"/>
+          <rect x="15" y="1" width="5" height="5" fill="#16283D"/>
+          <rect x="16" y="2" width="3" height="3" fill="currentColor"/>
+          <rect x="0" y="14" width="7" height="7" fill="currentColor"/>
+          <rect x="1" y="15" width="5" height="5" fill="#16283D"/>
+          <rect x="2" y="16" width="3" height="3" fill="currentColor"/>
+          <rect x="9" y="1" width="1" height="1" fill="currentColor"/>
+          <rect x="11" y="4" width="1" height="1" fill="currentColor"/>
+          <rect x="9" y="9" width="1" height="1" fill="currentColor"/>
+          <rect x="11" y="9" width="1" height="1" fill="currentColor"/>
+          <rect x="9" y="11" width="1" height="1" fill="currentColor"/>
+          <rect x="13" y="9" width="1" height="1" fill="currentColor"/>
+          <rect x="16" y="11" width="1" height="1" fill="currentColor"/>
+          <rect x="9" y="16" width="1" height="1" fill="currentColor"/>
+          <rect x="13" y="13" width="1" height="1" fill="currentColor"/>
+          <rect x="17" y="17" width="1" height="1" fill="currentColor"/>
+        </svg></span>
+        <span><span class="qr">QR</span>codeology</span>
+      </a>
+      <p class="note-text">Cada herramienta en este sitio funciona completamente en tu navegador. Nada de lo que ingreses se almacena ni se envía a ningún lugar.</p>
+    </footer>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script>
+(function(){
+  const modeTabs = document.getElementById('modeTabs');
+  const panels = document.querySelectorAll('[data-mode-panel]');
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const startCamBtn = document.getElementById('startCamBtn');
+  const stopCamBtn = document.getElementById('stopCamBtn');
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('processCanvas');
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  const resultBox = document.getElementById('resultBox');
+  const resultActions = document.getElementById('resultActions');
+  const copyBtn = document.getElementById('copyBtn');
+  const openBtn = document.getElementById('openBtn');
+
+  let currentMode = 'upload';
+  let stream = null;
+  let rafId = null;
+  let lastDecoded = '';
+
+  modeTabs.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    modeTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMode = btn.dataset.mode;
+    panels.forEach(p => p.style.display = p.dataset.modePanel === currentMode ? 'block' : 'none');
+    if(currentMode !== 'camera') stopCamera();
+  });
+
+  function isUrl(text){
+    return /^https?:\/\//i.test(text) || /^www\./i.test(text);
+  }
+
+  function parseWifi(text){
+    const match = {};
+    const re = /([A-Z]):((?:\\.|[^;])*);/g;
+    let m;
+    while((m = re.exec(text + ';')) !== null){
+      match[m[1]] = m[2].replace(/\\(.)/g, '$1');
+    }
+    return match;
+  }
+
+  function showResult(text){
+    lastDecoded = text;
+    resultActions.style.display = 'flex';
+    if(text.toUpperCase().startsWith('WIFI:')){
+      const f = parseWifi(text.slice(5));
+      resultBox.innerHTML =
+        '<span class="kind">Red WiFi</span>' +
+        '<div class="decoded">' +
+        '<div class="wifi-field"><strong>Red:</strong> ' + (f.S || '—') + '</div>' +
+        '<div class="wifi-field"><strong>Contraseña:</strong> ' + (f.P || '(ninguna)') + '</div>' +
+        '<div class="wifi-field"><strong>Seguridad:</strong> ' + (f.T || 'Desconocida') + '</div>' +
+        '</div>';
+      openBtn.style.display = 'none';
+    } else if(text.toLowerCase().startsWith('mailto:')){
+      resultBox.innerHTML = '<span class="kind">Correo Electrónico</span><div class="decoded">' + text.slice(7) + '</div>';
+      openBtn.style.display = 'none';
+    } else if(text.toLowerCase().startsWith('tel:')){
+      resultBox.innerHTML = '<span class="kind">Número de Teléfono</span><div class="decoded">' + text.slice(4) + '</div>';
+      openBtn.style.display = 'none';
+    } else if(isUrl(text)){
+      resultBox.innerHTML = '<span class="kind">Enlace</span><div class="decoded">' + text + '</div>';
+      openBtn.style.display = 'block';
+    } else {
+      resultBox.innerHTML = '<span class="kind">Texto</span><div class="decoded">' + text + '</div>';
+      openBtn.style.display = 'none';
+    }
+  }
+
+  function showError(msg){
+    resultActions.style.display = 'none';
+    resultBox.innerHTML = '<span class="error-text">' + msg + '</span>';
+  }
+
+  copyBtn.addEventListener('click', () => {
+    if(!lastDecoded) return;
+    navigator.clipboard.writeText(lastDecoded).then(() => {
+      copyBtn.textContent = '¡Copiado!';
+      setTimeout(() => { copyBtn.textContent = 'Copiar'; }, 1500);
+    });
+  });
+
+  openBtn.addEventListener('click', () => {
+    if(!lastDecoded) return;
+    const url = /^https?:\/\//i.test(lastDecoded) ? lastDecoded : 'https://' + lastDecoded;
+    window.open(url, '_blank', 'noopener');
+  });
+
+  // Modo subir imagen
+  dropzone.addEventListener('click', () => fileInput.click());
+  dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag'); });
+  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag'));
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropzone.classList.remove('drag');
+    if(e.dataTransfer.files && e.dataTransfer.files[0]) decodeFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', () => {
+    if(fileInput.files && fileInput.files[0]) decodeFile(fileInput.files[0]);
+  });
+
+  function decodeFile(file){
+    if(!file.type.startsWith('image/')){
+      showError('Ese archivo no es una imagen. Prueba con un PNG o JPG que contenga un código QR.');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const maxDim = 1200;
+        let w = img.width, h = img.height;
+        if(w > maxDim || h > maxDim){
+          const scale = maxDim / Math.max(w, h);
+          w = Math.round(w * scale);
+          h = Math.round(h * scale);
+        }
+        canvas.width = w;
+        canvas.height = h;
+        ctx.drawImage(img, 0, 0, w, h);
+        const imageData = ctx.getImageData(0, 0, w, h);
+        const code = jsQR(imageData.data, w, h);
+        if(code){
+          showResult(code.data);
+        } else {
+          showError('No se detectó ningún código QR en esa imagen. Prueba con una foto más clara o más grande.');
+        }
+      };
+      img.onerror = () => showError('No se pudo cargar ese archivo de imagen.');
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // Modo cámara
+  startCamBtn.addEventListener('click', startCamera);
+  stopCamBtn.addEventListener('click', stopCamera);
+
+  function startCamera(){
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+      .then(s => {
+        stream = s;
+        video.srcObject = s;
+        video.style.display = 'block';
+        video.play();
+        startCamBtn.style.display = 'none';
+        stopCamBtn.style.display = 'block';
+        rafId = requestAnimationFrame(tick);
+      })
+      .catch(() => {
+        showError('El acceso a la cámara fue denegado o no está disponible. Aún puedes usar la opción de subir imagen.');
+      });
+  }
+
+  function stopCamera(){
+    if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+    if(stream){ stream.getTracks().forEach(t => t.stop()); stream = null; }
+    video.style.display = 'none';
+    startCamBtn.style.display = 'block';
+    stopCamBtn.style.display = 'none';
+  }
+
+  function tick(){
+    if(video.readyState === video.HAVE_ENOUGH_DATA){
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const code = jsQR(imageData.data, canvas.width, canvas.height);
+      if(code){
+        showResult(code.data);
+        stopCamera();
+        return;
+      }
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+})();
+</script>
+<script>
+(function(){
+  var t=document.getElementById('menuToggle'), p=document.getElementById('menuPanel');
+  var lt=document.getElementById('langToggle'), lp=document.getElementById('langPanel');
+    var themeBtn=document.getElementById('themeToggle'), iconMoon=document.getElementById('iconMoon'), iconSun=document.getElementById('iconSun');
+  function applyTheme(dark){
+    document.body.classList.toggle('theme-dark', dark);
+    if(iconMoon && iconSun){ iconMoon.style.display = dark ? 'none' : 'block'; iconSun.style.display = dark ? 'block' : 'none'; }
+    try{ localStorage.setItem('qrcodeology-theme', dark ? 'dark' : 'light'); }catch(e){}
+  }
+  if(themeBtn){
+    var savedTheme=null;
+    try{ savedTheme = localStorage.getItem('qrcodeology-theme'); }catch(e){}
+    applyTheme(savedTheme === 'dark');
+    themeBtn.addEventListener('click', function(){ applyTheme(!document.body.classList.contains('theme-dark')); });
+  }
+  function closeMenu(){ if(t&&p){t.classList.remove('open'); p.classList.remove('open');} }
+  function closeLang(){ if(lt&&lp){lt.classList.remove('open'); lp.classList.remove('open');} }
+  if(t && p){
+    t.addEventListener('click', function(e){
+      e.stopPropagation();
+      var wasOpen = t.classList.contains('open');
+      closeLang();
+      t.classList.toggle('open', !wasOpen);
+      p.classList.toggle('open', !wasOpen);
+    });
+  }
+  if(lt && lp){
+    lt.addEventListener('click', function(e){
+      e.stopPropagation();
+      var wasOpen = lt.classList.contains('open');
+      closeMenu();
+      lt.classList.toggle('open', !wasOpen);
+      lp.classList.toggle('open', !wasOpen);
+    });
+  }
+  document.addEventListener('click', function(e){
+    if(t && p && !t.contains(e.target) && !p.contains(e.target)) closeMenu();
+    if(lt && lp && !lt.contains(e.target) && !lp.contains(e.target)) closeLang();
+  });
+})();
+</script>
+</body>
+</html>

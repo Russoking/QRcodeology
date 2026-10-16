@@ -49,20 +49,29 @@
 
   <url>
     <loc>https://qrcodeology.com/scanner/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/scanner/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/scanner/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/scanner/" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://qrcodeology.com/glossary/</loc>
+    <loc>https://qrcodeology.com/size-calculator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/size-calculator/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/size-calculator/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/size-calculator/" />
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://qrcodeology.com/size-calculator/</loc>
+    <loc>https://qrcodeology.com/glossary/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/glossary/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/glossary/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/glossary/" />
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
 
   <url>
@@ -111,21 +120,84 @@
   </url>
 
   <url>
+    <loc>https://qrcodeology.com/es/scanner/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/scanner/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/scanner/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/scanner/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://qrcodeology.com/es/size-calculator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/size-calculator/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/size-calculator/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/size-calculator/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://qrcodeology.com/es/glossary/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/glossary/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/glossary/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/glossary/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
     <loc>https://qrcodeology.com/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/blog/" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://qrcodeology.com/blog/static-vs-dynamic-qr-codes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/blog/static-vs-dynamic-qr-codes/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/blog/static-vs-dynamic-qr-codes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/blog/static-vs-dynamic-qr-codes/" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://qrcodeology.com/blog/qr-codes-for-restaurant-menus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/blog/qr-codes-for-restaurant-menus/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/blog/qr-codes-for-restaurant-menus/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/blog/qr-codes-for-restaurant-menus/" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://qrcodeology.com/es/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/blog/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://qrcodeology.com/es/blog/static-vs-dynamic-qr-codes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/blog/static-vs-dynamic-qr-codes/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/blog/static-vs-dynamic-qr-codes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/blog/static-vs-dynamic-qr-codes/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://qrcodeology.com/es/blog/qr-codes-for-restaurant-menus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qrcodeology.com/blog/qr-codes-for-restaurant-menus/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://qrcodeology.com/es/blog/qr-codes-for-restaurant-menus/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qrcodeology.com/blog/qr-codes-for-restaurant-menus/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <url>
