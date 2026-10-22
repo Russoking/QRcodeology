@@ -26,7 +26,19 @@
   p{color:var(--ink-dim);font-size:15.5px;margin:0 0 28px;}
   .links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
   .links a{background:var(--surface);border:1px solid var(--surface-line);border-radius:var(--radius);padding:10px 16px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:600;}
-  .links a:hover{border-color:var(--cyan-ink);color:var(--cyan-ink);}
+  .links a{transition:border-color 0.3s cubic-bezier(.16,1,.3,1), color 0.3s cubic-bezier(.16,1,.3,1), transform 0.3s cubic-bezier(.16,1,.3,1);}
+  .links a:hover{border-color:var(--cyan-ink);color:var(--cyan-ink);transform:translateY(-3px);}
+  html{scroll-behavior:smooth;}
+  @keyframes popIn{from{opacity:0;transform:translateY(24px) scale(0.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+  .mascot{animation:popIn 0.8s cubic-bezier(.16,1,.3,1) both;}
+  .code{animation:popIn 0.7s cubic-bezier(.16,1,.3,1) 0.1s both;}
+  h1{animation:popIn 0.7s cubic-bezier(.16,1,.3,1) 0.18s both;}
+  .box > p{animation:popIn 0.7s cubic-bezier(.16,1,.3,1) 0.26s both;}
+  .links{animation:popIn 0.7s cubic-bezier(.16,1,.3,1) 0.34s both;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .mascot, .code, h1, .box > p, .links{animation:none;}
+  }
 </style>
 </head>
 <body>
