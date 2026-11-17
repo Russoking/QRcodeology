@@ -97,9 +97,14 @@
   .faq details{border-bottom:1px solid var(--surface-line);padding:16px 0;}
   .faq summary{font-family:'Inter',sans-serif;font-weight:600;font-size:15.5px;color:var(--ink);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
   .faq summary::-webkit-details-marker{display:none;}
-  .faq summary::after{content:"+";font-family:'Space Mono',monospace;color:var(--amber-ink);font-size:18px;margin-left:12px;flex-shrink:0;}
-  .faq details[open] summary::after{content:"–";}
-  .faq details p{margin:12px 0 0;color:var(--ink-dim);font-size:15px;max-width:66ch;}
+  .faq summary::after{content:"+";font-family:'Space Mono',monospace;color:var(--amber-ink);font-size:18px;margin-left:12px;flex-shrink:0;display:inline-block;transition:transform 220ms cubic-bezier(.16,1,.3,1);}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq .faq-content{overflow:hidden;height:0;transition:height 220ms cubic-bezier(.16,1,.3,1);}
+  .faq .faq-content p{margin:12px 0 0;color:var(--ink-dim);font-size:15px;max-width:66ch;}
+  @media (prefers-reduced-motion:reduce){
+    .faq summary::after{transition:none;}
+    .faq .faq-content{transition:none;}
+  }
 
   .site-header{background:var(--bg);position:relative;}
   .site-header::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(79,209,232,0.07) 0px, rgba(79,209,232,0.07) 1px, transparent 1px, transparent 3px);}
@@ -316,19 +321,19 @@
       <div class="faq">
         <details>
           <summary>Does this QR code really never expire?</summary>
-          <p>Correct. Because the code is static and generated client-side, there's no subscription or server dependency that could cause it to stop working later. As long as the image file itself survives, the code will scan.</p>
+          <div class="faq-content"><p>Correct. Because the code is static and generated client-side, there's no subscription or server dependency that could cause it to stop working later. As long as the image file itself survives, the code will scan.</p></div>
         </details>
         <details>
           <summary>Is there a scan limit?</summary>
-          <p>No. Static QR codes like the ones generated here can be scanned an unlimited number of times by an unlimited number of people.</p>
+          <div class="faq-content"><p>No. Static QR codes like the ones generated here can be scanned an unlimited number of times by an unlimited number of people.</p></div>
         </details>
         <details>
           <summary>Do I need to create an account?</summary>
-          <p>No sign-up is required for any of the tools on this site. Enter your content, generate, and download.</p>
+          <div class="faq-content"><p>No sign-up is required for any of the tools on this site. Enter your content, generate, and download.</p></div>
         </details>
         <details>
           <summary>Can I use this QR code for a business or commercially?</summary>
-          <p>Yes. The QR codes generated here have no licensing restriction and can be used for personal or commercial purposes.</p>
+          <div class="faq-content"><p>Yes. The QR codes generated here have no licensing restriction and can be used for personal or commercial purposes.</p></div>
         </details>
       </div>
     
@@ -518,6 +523,53 @@
     });
   }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
   targets.forEach(function(el){ io.observe(el); });
+})();
+</script>
+<script>
+(function(){
+  var items = document.querySelectorAll('.faq details, .faq2 details');
+  items.forEach(function(d){
+    var content = d.querySelector('.faq-content');
+    var summary = d.querySelector('summary');
+    if(!content || !summary) return;
+    content.style.height = '0px';
+    var endHandler = null;
+    function clearEndHandler(){
+      if(endHandler){ content.removeEventListener('transitionend', endHandler); endHandler = null; }
+    }
+    summary.addEventListener('click', function(e){
+      e.preventDefault();
+      clearEndHandler();
+      if(d.hasAttribute('open')){
+        content.style.height = content.scrollHeight + 'px';
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){
+            content.style.height = '0px';
+          });
+        });
+        endHandler = function(ev){
+          if(ev.propertyName !== 'height') return;
+          clearEndHandler();
+          d.removeAttribute('open');
+        };
+        content.addEventListener('transitionend', endHandler);
+      } else {
+        d.setAttribute('open', '');
+        content.style.height = '0px';
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){
+            content.style.height = content.scrollHeight + 'px';
+          });
+        });
+        endHandler = function(ev){
+          if(ev.propertyName !== 'height') return;
+          clearEndHandler();
+          content.style.height = 'auto';
+        };
+        content.addEventListener('transitionend', endHandler);
+      }
+    });
+  });
 })();
 </script>
 </body>
