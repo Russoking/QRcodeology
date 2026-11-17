@@ -101,7 +101,8 @@
   .faq details[open] summary::after{content:"–";}
   .faq details p{margin:12px 0 0;color:var(--ink-dim);font-size:15px;max-width:66ch;}
 
-  .site-header{background:var(--bg);}
+  .site-header{background:var(--bg);position:relative;overflow:hidden;}
+  .site-header::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(79,209,232,0.07) 0px, rgba(79,209,232,0.07) 1px, transparent 1px, transparent 3px);}
   .topnav{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;max-width:920px;margin:0 auto;position:relative;}
   .topnav .brand{display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-weight:700;font-size:28px;color:var(--paper);text-decoration:none;letter-spacing:0.01em;}
   .brand-icon{display:flex;color:var(--amber);transition:transform 0.25s ease, color 0.2s ease;}
@@ -118,7 +119,8 @@
   .menu-panel a{padding:10px 12px;border-radius:4px;color:var(--paper-dim);text-decoration:none;font-size:14px;}
   .menu-panel a:hover{background:rgba(79,209,232,0.08);color:var(--cyan);}
   .menu-panel a.active{color:var(--cyan);}
-  .site-footer-bg{background:var(--bg);}
+  .site-footer-bg{background:var(--bg);position:relative;overflow:hidden;}
+  .site-footer-bg::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(79,209,232,0.06) 0px, rgba(79,209,232,0.06) 1px, transparent 1px, transparent 3px);}
   .site-footer{padding:40px 24px 60px;max-width:920px;margin:0 auto;text-align:center;}
   .footer-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--paper);font-family:'Space Mono',monospace;font-weight:700;font-size:26px;letter-spacing:0.01em;margin-bottom:14px;}
   .footer-brand .brand-icon{color:var(--amber);display:flex;transition:transform 0.25s ease, color 0.2s ease;}
@@ -150,6 +152,7 @@
   @media (max-width:720px){.related-grid{grid-template-columns:1fr;}}
   .related-card{background:var(--surface);border:1px solid var(--surface-line);border-radius:var(--radius);padding:18px 16px;text-decoration:none;color:var(--ink);display:block;transition:border-color 0.3s cubic-bezier(.16,1,.3,1), transform 0.3s cubic-bezier(.16,1,.3,1), box-shadow 0.3s cubic-bezier(.16,1,.3,1);}
   .related-card:hover{border-color:var(--cyan-ink);transform:translateY(-6px) scale(1.02);box-shadow:0 16px 32px rgba(0,0,0,0.14);}
+  .related-card:hover h3{animation:glitchFlicker 0.4s steps(3,end);}
   .related-tag{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cyan-ink);display:block;margin-bottom:8px;}
   .related-card h3{font-size:15px;margin:0 0 6px;font-family:'Inter',sans-serif;font-weight:700;}
   .related-card p{font-size:13px;color:var(--ink-dim);margin:0;}
@@ -176,6 +179,15 @@
     html{scroll-behavior:auto;}
     header.hero .eyebrow, header.hero h1, header.hero .sub, header.hero .hero-mascot{animation:none;}
     .reveal{opacity:1;transform:none;transition:none;}
+  }
+  /* retro-futuristic terminal texture */
+  .caret{display:inline-block;width:3px;height:0.85em;background:var(--cyan-ink);margin-left:2px;vertical-align:-0.08em;animation:caretBlink 1s step-end infinite;}
+  @keyframes caretBlink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  @keyframes glitchFlicker{0%{text-shadow:none;}20%{text-shadow:2px 0 var(--cyan-ink), -2px 0 #ff4d4d;}45%{text-shadow:-2px 0 var(--cyan-ink), 2px 0 #ff4d4d;}70%{text-shadow:1px 0 var(--cyan-ink), -1px 0 #ff4d4d;}100%{text-shadow:none;}}
+  .hero-mascot{filter:drop-shadow(0 0 18px rgba(79,209,232,0.35));}
+  @media (prefers-reduced-motion:reduce){
+    .caret{animation:none;opacity:1;}
+    .card:hover h2, .related-card:hover h3{animation:none;}
   }
 </style>
 </head>
@@ -243,7 +255,7 @@
   <div class="wrap">
     <header class="hero">
       <p class="eyebrow">Free QR Code Generator</p>
-      <h1>A QR code that <span>never expires.</span></h1>
+      <h1>A QR code that <span>never expires.</span><span class="caret" aria-hidden="true"></span></h1>
       <p class="sub">Paste a link, some text, an email, or a phone number. Get a working QR code instantly — no account, no watermark, no time limit on the code itself.</p>
     </header>
 

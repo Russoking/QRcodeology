@@ -39,6 +39,15 @@
     html{scroll-behavior:auto;}
     .mascot, .code, h1, .box > p, .links{animation:none;}
   }
+  /* retro-futuristic terminal texture */
+  .caret{display:inline-block;width:3px;height:0.85em;background:var(--cyan-ink);margin-left:2px;vertical-align:-0.08em;animation:caretBlink 1s step-end infinite;}
+  @keyframes caretBlink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  @keyframes glitchFlicker{0%{text-shadow:none;}20%{text-shadow:2px 0 var(--cyan-ink), -2px 0 #ff4d4d;}45%{text-shadow:-2px 0 var(--cyan-ink), 2px 0 #ff4d4d;}70%{text-shadow:1px 0 var(--cyan-ink), -1px 0 #ff4d4d;}100%{text-shadow:none;}}
+  .hero-mascot{filter:drop-shadow(0 0 18px rgba(79,209,232,0.35));}
+  @media (prefers-reduced-motion:reduce){
+    .caret{animation:none;opacity:1;}
+    .card:hover h2, .related-card:hover h3{animation:none;}
+  }
 </style>
 </head>
 <body>
@@ -46,7 +55,7 @@
     <div class="box">
       <img class="mascot" src="/assets/mascot-wizard.png" alt="A friendly wizard mascot with a QR-code body, casting a spell" width="170" height="136">
       <p class="code">404</p>
-      <h1>That page doesn't exist.</h1>
+      <h1>That page doesn't exist.<span class="caret" aria-hidden="true"></span></h1>
       <p>The link might be old, or the page may have moved. Here's where to go instead:</p>
       <div class="links">
         <a href="/">All Tools</a>
