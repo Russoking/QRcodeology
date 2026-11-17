@@ -54,7 +54,8 @@
   .card .tag{font-family:'Space Mono',monospace;font-size:11px;color:var(--cyan-ink);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;display:block;}
   .card h2{font-size:19px;margin:0 0 8px;font-family:'Inter',sans-serif;font-weight:700;}
   .card p{color:var(--ink-dim);font-size:14px;margin:0;}
-  .site-header{background:var(--bg);}
+  .site-header{background:var(--bg);position:relative;overflow:hidden;}
+  .site-header::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(79,209,232,0.07) 0px, rgba(79,209,232,0.07) 1px, transparent 1px, transparent 3px);}
   .topnav{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;max-width:960px;margin:0 auto;position:relative;}
   .topnav .brand{display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-weight:700;font-size:28px;color:var(--paper);text-decoration:none;letter-spacing:0.01em;}
   .brand-icon{display:flex;color:var(--amber);transition:transform 0.25s ease, color 0.2s ease;}
@@ -71,7 +72,8 @@
   .menu-panel a{padding:10px 12px;border-radius:4px;color:var(--paper-dim);text-decoration:none;font-size:14px;}
   .menu-panel a:hover{background:rgba(79,209,232,0.08);color:var(--cyan);}
   .menu-panel a.active{color:var(--cyan);}
-  .site-footer-bg{background:var(--bg);}
+  .site-footer-bg{background:var(--bg);position:relative;overflow:hidden;}
+  .site-footer-bg::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg, rgba(79,209,232,0.06) 0px, rgba(79,209,232,0.06) 1px, transparent 1px, transparent 3px);}
   .persona-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0 8px;}
   @media (max-width:680px){.persona-grid{grid-template-columns:1fr;}}
   .persona-card{background:var(--surface);border:1px solid var(--surface-line);border-radius:var(--radius);padding:22px;}
@@ -143,6 +145,17 @@
     header.hero .eyebrow, header.hero h1, header.hero .sub, header.hero .hero-mascot{animation:none;}
     .reveal{opacity:1;transform:none;transition:none;}
   }
+  /* retro-futuristic terminal texture */
+  .caret{display:inline-block;width:3px;height:0.85em;background:var(--cyan-ink);margin-left:2px;vertical-align:-0.08em;animation:caretBlink 1s step-end infinite;}
+  @keyframes caretBlink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  @keyframes glitchFlicker{0%{text-shadow:none;}20%{text-shadow:2px 0 var(--cyan-ink), -2px 0 #ff4d4d;}45%{text-shadow:-2px 0 var(--cyan-ink), 2px 0 #ff4d4d;}70%{text-shadow:1px 0 var(--cyan-ink), -1px 0 #ff4d4d;}100%{text-shadow:none;}}
+  .card:hover h2{animation:glitchFlicker 0.4s steps(3,end);}
+  .hero-mascot{filter:drop-shadow(0 0 18px rgba(79,209,232,0.35));}
+  @media (prefers-reduced-motion:reduce){
+    .caret{animation:none;opacity:1;}
+    .card:hover h2{animation:none;}
+  }
 </style>
 </head>
 <body>
@@ -210,7 +223,7 @@
     <header class="hero">
       <div class="hero-text">
         <p class="eyebrow">QR Code Tools</p>
-        <h1>QR codes that don't <span>expire, watermark,</span> or ask you to sign up.</h1>
+        <h1><span class="sr-only">QR codes that don't expire, watermark, or ask you to sign up.</span><span aria-hidden="true" id="heroTitleAnim"></span><span class="caret" aria-hidden="true"></span></h1>
         <p class="sub">Six focused tools, each built for one job. Everything runs instantly in your browser — nothing is uploaded to a server.</p>
       </div>
       <img class="hero-mascot" src="assets/mascot-wizard.png" alt="A friendly wizard mascot with a QR-code body, casting a spell" width="220" height="176" loading="eager">
@@ -358,6 +371,41 @@
       </div>
     </footer>
   </div>
+<script>
+(function(){
+  var animEl = document.getElementById('heroTitleAnim');
+  if(!animEl) return;
+  var segments = [
+    {text:"QR codes that don't ", accent:false},
+    {text:"expire, watermark,", accent:true},
+    {text:" or ask you to sign up.", accent:false}
+  ];
+  var total = segments.reduce(function(n,s){ return n + s.text.length; }, 0);
+  function buildHTML(count){
+    var remaining = count, html = '';
+    for (var i=0; i<segments.length; i++){
+      if (remaining <= 0) break;
+      var seg = segments[i];
+      var take = Math.min(seg.text.length, remaining);
+      var chunk = seg.text.slice(0, take);
+      html += seg.accent ? ('<span>' + chunk + '</span>') : chunk;
+      remaining -= take;
+    }
+    return html;
+  }
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced){
+    animEl.innerHTML = buildHTML(total);
+  } else {
+    var count = 0;
+    var timer = setInterval(function(){
+      count++;
+      animEl.innerHTML = buildHTML(count);
+      if (count >= total) clearInterval(timer);
+    }, 28);
+  }
+})();
+</script>
 <script>
 (function(){
   var t=document.getElementById('menuToggle'), p=document.getElementById('menuPanel');
