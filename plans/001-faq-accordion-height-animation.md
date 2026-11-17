@@ -1,6 +1,6 @@
 # 001 — Animate the FAQ accordion open/close instead of snapping
 
-- **Status**: TODO
+- **Status**: DONE
 - **Commit**: 9b65582
 - **Severity**: MEDIUM
 - **Category**: Missed opportunities / Performance (documented exception: measured height)
